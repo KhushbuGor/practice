@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    print( params[ :confirm ] )
   end
 
   # GET /products/new
@@ -51,6 +52,8 @@ class ProductsController < ApplicationController
   # DELETE /products/1 or /products/1.json
   def destroy
     @product.destroy
+    puts( "here" )
+    print(@product)
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
@@ -66,6 +69,5 @@ class ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description,  product_variants_attributes: [:id, :color, :size])
-
     end
 end
