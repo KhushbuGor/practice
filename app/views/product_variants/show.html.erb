@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<%= render @product_variant %>
+<p>
+  <strong>Color:</strong>
+  <%= @product_variant.Color %>
+</p>
 
-<div>
-  <%= link_to "Edit this product variant", edit_product_variant_path(@product_variant) %> |
-  <%= link_to "Back to product variants", product_variants_path %>
+<p>
+  <strong>Size:</strong>
+  <%= @product_variant.Size %>
+</p>
 
-  <%= button_to "Destroy this product variant", @product_variant, method: :delete %>
-</div>
+<p>
+  <strong>Product:</strong>
+  <%= @product_variant.product %>
+</p>
+
+<%= link_to 'Edit', edit_product_variant_path(@product_variant) %> |
+<%= link_to 'Back', product_variants_path %>
