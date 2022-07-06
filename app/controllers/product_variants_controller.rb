@@ -25,10 +25,10 @@ class ProductVariantsController < ApplicationController
 
     respond_to do |format|
       if @product_variant.save
-        format.html { redirect_to product_variant_url(@product_variant), notice: "Product variant was successfully created." }
+        format.html { redirect_to @product_variant, notice: 'Product variant was successfully created.' }
         format.json { render :show, status: :created, location: @product_variant }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @product_variant.errors, status: :unprocessable_entity }
       end
     end
@@ -38,10 +38,10 @@ class ProductVariantsController < ApplicationController
   def update
     respond_to do |format|
       if @product_variant.update(product_variant_params)
-        format.html { redirect_to product_variant_url(@product_variant), notice: "Product variant was successfully updated." }
+        format.html { redirect_to @product_variant, notice: 'Product variant was successfully updated.' }
         format.json { render :show, status: :ok, location: @product_variant }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @product_variant.errors, status: :unprocessable_entity }
       end
     end
@@ -50,9 +50,8 @@ class ProductVariantsController < ApplicationController
   # DELETE /product_variants/1 or /product_variants/1.json
   def destroy
     @product_variant.destroy
-
     respond_to do |format|
-      format.html { redirect_to product_variants_url, notice: "Product variant was successfully destroyed." }
+      format.html { redirect_to product_variants_url, notice: 'Product variant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +64,6 @@ class ProductVariantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_variant_params
-      params.require(:product_variant).permit(:Color, :Size, :product_id)
+      params.require(:product_variant).permit(:color, :size, :product_id)
     end
 end

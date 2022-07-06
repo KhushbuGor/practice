@@ -24,6 +24,8 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+
 gem 'jquery-rails', '~> 4.5'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
